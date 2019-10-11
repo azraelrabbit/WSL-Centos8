@@ -7,27 +7,54 @@
 
 bool DistributionInfo::CreateUser(std::wstring_view userName)
 {
+
+	// enable epel
+	DWORD exitCode;
+	std::wstring commandLine = L"/usr/bin/yum -y install epel-release";
+	HRESULT hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
+	if ((FAILED(hr)) || (exitCode != 0)) {
+		return false;
+	}
+
+	// Install basic tools.
+ 
+	 commandLine = L"/usr/bin/yum install -y wget git htop dnf";
+	  hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
+	if ((FAILED(hr)) || (exitCode != 0)) {
+		return false;
+	}
+
+
     // Create the user account.
-    DWORD exitCode;
-    std::wstring commandLine = L"/usr/sbin/adduser --quiet --gecos '' ";
+ 
+     commandLine = L"/usr/sbin/adduser ";
     commandLine += userName;
-    HRESULT hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
+      hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
     if ((FAILED(hr)) || (exitCode != 0)) {
         return false;
     }
 
     // Add the user account to any relevant groups.
-    commandLine = L"/usr/sbin/usermod -aG adm,cdrom,sudo,dip,plugdev ";
+    commandLine = L"/usr/sbin/usermod -aG adm,cdrom,wheel ";
     commandLine += userName;
     hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
     if ((FAILED(hr)) || (exitCode != 0)) {
 
         // Delete the user if the group add command failed.
-        commandLine = L"/usr/sbin/deluser ";
+        commandLine = L"/usr/sbin/userdel ";
         commandLine += userName;
         g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
         return false;
     }
+
+	commandLine = L"/usr/bin/passwd ";
+	commandLine += userName;
+	hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
+	if ((FAILED(hr)) || (exitCode != 0)) {
+
+		return false;
+	}
+
 
     return true;
 }
