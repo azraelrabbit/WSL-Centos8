@@ -158,6 +158,7 @@
     <CustomBuild Include="$(targetname)" />
     <CustomBuild Include="$(targetname)" />
     <CustomBuild Include="$(targetname)" />
+    <CustomBuild Include="$(targetname)" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Centos7.appxmanifest" />

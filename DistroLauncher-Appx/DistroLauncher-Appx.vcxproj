@@ -2,7 +2,7 @@
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="Globals">
     <ProjectGuid>{f63472f9-d0a0-412e-aa3d-a4e822970486}</ProjectGuid>
-    <RootNamespace>DistroLauncher_Appx</RootNamespace>
+    <RootNamespace>Centos7_Appx</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <AppContainerApplication>true</AppContainerApplication>
@@ -11,7 +11,7 @@
     <WindowsTargetPlatformMinVersion>10.0.16215.0</WindowsTargetPlatformMinVersion>
     <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
     <TargetName>Centos7</TargetName>
-    <ProjectName>DistroLauncher-Appx</ProjectName>
+    <ProjectName>Centos7-Appx</ProjectName>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
