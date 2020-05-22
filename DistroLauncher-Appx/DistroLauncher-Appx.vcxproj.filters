@@ -161,6 +161,6 @@
     <CustomBuild Include="$(targetname)" />
   </ItemGroup>
   <ItemGroup>
-    <AppxManifest Include="Centos7.appxmanifest" />
+    <AppxManifest Include="centos8.appxmanifest" />
   </ItemGroup>
 </Project>

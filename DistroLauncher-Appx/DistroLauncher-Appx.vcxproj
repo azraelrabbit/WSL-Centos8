@@ -2,16 +2,16 @@
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="Globals">
     <ProjectGuid>{f63472f9-d0a0-412e-aa3d-a4e822970486}</ProjectGuid>
-    <RootNamespace>Centos7_Appx</RootNamespace>
+    <RootNamespace>Centos8_Appx</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <AppContainerApplication>true</AppContainerApplication>
     <ApplicationType>Windows Store</ApplicationType>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
-    <WindowsTargetPlatformMinVersion>10.0.16215.0</WindowsTargetPlatformMinVersion>
+     <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.18362.0</WindowsTargetPlatformMinVersion>
     <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
-    <TargetName>Centos7</TargetName>
-    <ProjectName>Centos7-Appx</ProjectName>
+    <TargetName>Centos8</TargetName>
+    <ProjectName>Centos8-Appx</ProjectName>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WindowsSDKDesktopARM64Support>true</WindowsSDKDesktopARM64Support>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -94,7 +94,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <AppxManifest Include="Centos7.appxmanifest">
+    <AppxManifest Include="centos8.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="DistroLauncher-Appx_StoreKey.pfx" />

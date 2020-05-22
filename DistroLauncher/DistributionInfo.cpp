@@ -10,26 +10,27 @@ bool DistributionInfo::CreateUser(std::wstring_view userName)
 
 	// enable epel
 	DWORD exitCode;
-	std::wstring commandLine = L"/usr/bin/yum -y install epel-release";
-	HRESULT hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
-	if ((FAILED(hr)) || (exitCode != 0)) {
-		return false;
-	}
 
-	// Install basic tools.
- 
-	 commandLine = L"/usr/bin/yum install -y wget git htop dnf";
-	  hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
-	if ((FAILED(hr)) || (exitCode != 0)) {
-		return false;
-	}
+	//std::wstring commandLine = L"/usr/bin/yum -y install epel-release";
+	//HRESULT hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
+	//if ((FAILED(hr)) || (exitCode != 0)) {
+	//	return false;
+	//}
+
+	//// Install basic tools.
+ //
+	// commandLine = L"/usr/bin/yum install -y wget git htop dnf";
+	//  hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
+	//if ((FAILED(hr)) || (exitCode != 0)) {
+	//	return false;
+	//}
 
 
     // Create the user account.
  
-     commandLine = L"/usr/sbin/adduser ";
+    std::wstring   commandLine = L"/usr/sbin/adduser ";
     commandLine += userName;
-      hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
+    HRESULT    hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
     if ((FAILED(hr)) || (exitCode != 0)) {
         return false;
     }
